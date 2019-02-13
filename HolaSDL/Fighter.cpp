@@ -1,12 +1,12 @@
 #include "Fighter.h"
 
-Fighter::Fighter(SDLGame* game, BulletsShooter* bs) :
-		GameObject(game) {
-	fighterTexture_ = getGame()->getServiceLocator()->getTextures()->getTexture(
-			Resources::Airplanes);
-	clip_ = {47, 90, 207, 250};
-	rotation_ = 90;
-	bs_ = bs;
+Fighter::Fighter(SDLGame* game, int w, int h, Vector2D pos/*, BulletsShooter* bs*/) : Container(game), 
+fighterImage_(game->getServiceLocator()->getTextures()->getTexture(Resources::Airplanes), { 47, 90, 207, 250 }) {
+	setWidth(w);
+	setHeight(h);
+	setPosition(pos);
+	setVelocity(Vector2D(2, 0));
+	setRotation(90);
 }
 
 Fighter::~Fighter() {
@@ -42,7 +42,7 @@ void Fighter::handleInput(Uint32 time, const SDL_Event& event) {
 					+ Vector2D(0, -1).rotate(rotation_)*(height_/2+10);
 			Vector2D bulletVelocity = velocity_
 					+ Vector2D(0, -1).rotate(rotation_).normalize() * 3;
-			bs_->addBullet(bulletPosition, bulletVelocity);
+			//bs_->addBullet(bulletPosition, bulletVelocity);
 			break;
 		}
 		default:
@@ -72,5 +72,5 @@ void Fighter::render(Uint32 time) {
 	// where to render it
 	SDL_Rect dest = RECT(getPosition().getX(), getPosition().getY(), getWidth(),
 			getHeight());
-	fighterTexture_->render(dest, rotation_, &clip_);
+	fighterImage_.render(this, 1);
 }

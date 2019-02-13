@@ -17,11 +17,7 @@ AsteroidsGame::~AsteroidsGame() {
 
 void AsteroidsGame::initGame() {
 	BulletsShooter* bs = new BulletsShooter(this);
-	GameObject* fighter = new Fighter(this, bs);
-	fighter->setWidth(75);
-	fighter->setHeight(75);
-	fighter->setPosition(Vector2D(getWindowWidth() / 2, getWindowHeight() / 2));
-	fighter->setVelocity(Vector2D(2, 0));
+	GameObject* fighter = new Fighter(this, 75, 75, { (double)getWindowWidth() / 2, (double)getWindowHeight() / 2 });
 
 	actors_.push_back(&demoContainer_);
 	actors_.push_back(fighter);
