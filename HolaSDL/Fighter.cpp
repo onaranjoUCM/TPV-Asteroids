@@ -1,50 +1,36 @@
 #include "Fighter.h"
 
-Fighter::Fighter(SDLGame* game, int w, int h, Vector2D pos/*, BulletsShooter* bs*/) : Container(game), 
-fighterImage_(game->getServiceLocator()->getTextures()->getTexture(Resources::Airplanes), { 47, 90, 207, 250 }) {
+Fighter::Fighter(SDLGame* game, int w, int h, Vector2D pos) : Container(game),
+	fighterImage_(game->getServiceLocator()->getTextures()->getTexture(Resources::Airplanes),
+	{ 47, 90, 207, 250 }), rotation_(SDLK_RIGHT, SDLK_LEFT, 5), thrust_(SDLK_UP, 0.5, 2.0)
+{
 	setWidth(w);
 	setHeight(h);
 	setPosition(pos);
-	setVelocity(Vector2D(2, 0));
+	setVelocity(Vector2D(0, 0));
 	setRotation(90);
 }
 
-Fighter::~Fighter() {
-}
+Fighter::~Fighter() { }
 
 void Fighter::handleInput(Uint32 time, const SDL_Event& event) {
 	if (event.type == SDL_KEYDOWN) {
+		rotation_.handleInput(this, 1, event);
+		thrust_.handleInput(this, 1, event);
 		switch (event.key.keysym.sym) {
-		case SDLK_UP:
-			// increase velocity
-			if (velocity_.magnitude() < 3) {
-				velocity_ = velocity_ * 1.1;
-			}
-			break;
 		case SDLK_DOWN:
 			// decrease velocity
 			velocity_ = velocity_ * 0.9;
 			break;
-		case SDLK_RIGHT:
-			// rotate fighter to right
-			rotation_ = ((int) rotation_ + 5) % 360;
-			velocity_ = velocity_.rotate(5);
-			break;
-		case SDLK_LEFT:
-			// rotate fighter to left
-			rotation_ = ((int) rotation_ + 360 - 5) % 360;
-			velocity_ = velocity_.rotate(-5);
-			break;
-		case SDLK_SPACE: {
-			// add a bullet
-			Vector2D bulletPosition = position_
-					+ Vector2D(width_ / 2, height_ / 2)
-					+ Vector2D(0, -1).rotate(rotation_)*(height_/2+10);
-			Vector2D bulletVelocity = velocity_
-					+ Vector2D(0, -1).rotate(rotation_).normalize() * 3;
+		/*case SDLK_SPACE: {
+			Vector2D bulletPosition = getPosition()
+					+ Vector2D(getWidth() / 2, getHeight() / 2)
+					+ Vector2D(0, -1).rotate(getRotation())*(getHeight() /2+10);
+			Vector2D bulletVelocity = getVelocity()
+					+ Vector2D(0, -1).rotate(getRotation()).normalize() * 3;
 			//bs_->addBullet(bulletPosition, bulletVelocity);
 			break;
-		}
+		}*/
 		default:
 			break;
 		}
@@ -54,25 +40,9 @@ void Fighter::handleInput(Uint32 time, const SDL_Event& event) {
 void Fighter::update(Uint32 time) {
 	naturalMove_.update(this, 1);
 	oppositeSide_.update(this, 1);
-	/*
-	position_ = position_ + velocity_;
-
-	// when exiting from one side appear in the other
-	if (position_.getX() >= getGame()->getWindowWidth()) {
-		position_.setX(1 - width_);
-	} else if (position_.getX() + width_ <= 0) {
-		position_.setX(getGame()->getWindowWidth());
-	}
-	if (position_.getY() >= getGame()->getWindowHeight()) {
-		position_.setY(1 - height_);
-	} else if (position_.getY() + height_ <= 0) {
-		position_.setY(getGame()->getWindowHeight());
-	}
-	*/
 }
 
 void Fighter::render(Uint32 time) {
-	// where to render it
 	SDL_Rect dest = RECT(getPosition().getX(), getPosition().getY(), getWidth(), getHeight());
 	fighterImage_.render(this, 1);
 }

@@ -38,6 +38,7 @@
     <ClInclude Include="PhysicsComponent.h" />
     <ClInclude Include="RandomNumberGenerator.h" />
     <ClInclude Include="Resources.h" />
+    <ClInclude Include="RotationIC.h" />
     <ClInclude Include="SDLAudioManager.h" />
     <ClInclude Include="SDLFontsManager.h" />
     <ClInclude Include="SDLGame.h" />
@@ -49,6 +50,7 @@
     <ClInclude Include="StopOnBordersPC.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TexturesManager.h" />
+    <ClInclude Include="ThrustIC.h" />
     <ClInclude Include="Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
@@ -78,6 +80,7 @@
     <ClCompile Include="PhysicsComponent.cpp" />
     <ClCompile Include="RandomNumberGenerator.cpp" />
     <ClCompile Include="Resources.cpp" />
+    <ClCompile Include="RotationIC.cpp" />
     <ClCompile Include="SDLAudioManager.cpp" />
     <ClCompile Include="SDLFontsManager.cpp" />
     <ClCompile Include="SDLGame.cpp" />
@@ -88,6 +91,7 @@
     <ClCompile Include="StopOnBordersPC.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TexturesManager.cpp" />
+    <ClCompile Include="ThrustIC.cpp" />
     <ClCompile Include="Vector2D.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
