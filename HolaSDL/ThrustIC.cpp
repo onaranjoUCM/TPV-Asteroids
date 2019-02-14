@@ -1,7 +1,5 @@
 #include "ThrustIC.h"
 
-
-
 ThrustIC::ThrustIC(SDL_Keycode k, float t, float sl) :
 	key_(k), thrust_(t), speedLimit_(sl) { }
 
