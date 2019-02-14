@@ -44,6 +44,7 @@
     <ClInclude Include="SDLTexturesManager.h" />
     <ClInclude Include="sdl_includes.h" />
     <ClInclude Include="ServiceLocator.h" />
+    <ClInclude Include="ShowUpAtOppositeSidePC.h" />
     <ClInclude Include="SRandBasedGenerator.h" />
     <ClInclude Include="StopOnBordersPC.h" />
     <ClInclude Include="Texture.h" />
@@ -82,6 +83,7 @@
     <ClCompile Include="SDLGame.cpp" />
     <ClCompile Include="SDLTexturesManager.cpp" />
     <ClCompile Include="ServiceLocator.cpp" />
+    <ClCompile Include="ShowUpAtOppositeSidePC.cpp" />
     <ClCompile Include="SRandBasedGenerator.cpp" />
     <ClCompile Include="StopOnBordersPC.cpp" />
     <ClCompile Include="Texture.cpp" />

@@ -52,6 +52,9 @@ void Fighter::handleInput(Uint32 time, const SDL_Event& event) {
 }
 
 void Fighter::update(Uint32 time) {
+	naturalMove_.update(this, 1);
+	oppositeSide_.update(this, 1);
+	/*
 	position_ = position_ + velocity_;
 
 	// when exiting from one side appear in the other
@@ -65,12 +68,11 @@ void Fighter::update(Uint32 time) {
 	} else if (position_.getY() + height_ <= 0) {
 		position_.setY(getGame()->getWindowHeight());
 	}
-
+	*/
 }
 
 void Fighter::render(Uint32 time) {
 	// where to render it
-	SDL_Rect dest = RECT(getPosition().getX(), getPosition().getY(), getWidth(),
-			getHeight());
+	SDL_Rect dest = RECT(getPosition().getX(), getPosition().getY(), getWidth(), getHeight());
 	fighterImage_.render(this, 1);
 }
