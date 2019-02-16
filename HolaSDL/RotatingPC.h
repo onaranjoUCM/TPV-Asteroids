@@ -3,10 +3,10 @@
 
 class RotatingPC : 	public PhysicsComponent {
 protected:
-	double grados;
+	double angle;
 public:
-	RotatingPC(double grados);
-	~RotatingPC();
-	virtual void update(Container* c);
+	RotatingPC(double angle);
+	virtual ~RotatingPC();
+	virtual void update(Container* c, Uint32 time);
 };
 

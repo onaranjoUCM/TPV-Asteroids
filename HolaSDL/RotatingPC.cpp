@@ -1,12 +1,9 @@
 #include "RotatingPC.h"
 
-
-
-RotatingPC::RotatingPC(double g) :	grados(g) {}
-
+RotatingPC::RotatingPC(double a) : angle(a) { }
 
 RotatingPC::~RotatingPC() { }
 
-void RotatingPC::update(Container* c) {
+void RotatingPC::update(Container* c, Uint32 time) {
 	c->getRotation();
 }
