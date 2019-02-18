@@ -5,6 +5,7 @@ class RotatingPC : 	public PhysicsComponent {
 protected:
 	double angle;
 public:
+	RotatingPC();
 	RotatingPC(double angle);
 	virtual ~RotatingPC();
 	virtual void update(Container* c, Uint32 time);
