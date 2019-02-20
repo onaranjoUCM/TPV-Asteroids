@@ -18,6 +18,7 @@ AsteroidsGame::~AsteroidsGame() {
 void AsteroidsGame::initGame() {
 	BulletsShooter* bs = new BulletsShooter(this);
 	GameObject* fighter = new Fighter(this, 75, 75, { (double)getWindowWidth() / 2, (double)getWindowHeight() / 2 });
+	Asteroids* asteroids = new Asteroids(this);
 
 	actors_.push_back(&demoContainer_);
 	actors_.push_back(fighter);

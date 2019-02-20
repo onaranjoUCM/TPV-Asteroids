@@ -1,6 +1,8 @@
 #pragma once
 
 #include "InputComponent.h"
+#include "Bullet.h"
+#include "Messages_defs.h"
 
 class GunIC : public InputComponent {
 protected:

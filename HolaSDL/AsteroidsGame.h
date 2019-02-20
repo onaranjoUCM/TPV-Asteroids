@@ -5,6 +5,7 @@
 #include "DemoContainer.h"
 #include "SDLGame.h"
 #include "GameObject.h"
+#include "Asteroids.h"
 
 class AsteroidsGame: public SDLGame {
 

@@ -10,4 +10,3 @@ public:
 	virtual ~RotatingPC();
 	virtual void update(Container* c, Uint32 time);
 };
-
