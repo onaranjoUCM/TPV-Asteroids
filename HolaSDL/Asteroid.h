@@ -19,9 +19,4 @@ public:
 
 	int getGenerations();
 	void setGenerations(int n);
-
-	ImageGC asteroidImage;
-	NaturalMovePC naturalMove;
-	RotatingPC rotating;
-	ShowUpAtOppositeSidePC showUpAtOppositeSide;
 };

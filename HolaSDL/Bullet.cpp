@@ -1,13 +1,10 @@
 #include "Bullet.h"
 
-Bullet::Bullet() {
-}
+Bullet::Bullet() { }
 
-Bullet::Bullet(SDLGame* game) {
-}
+Bullet::Bullet(SDLGame* game) { }
 
-Bullet::~Bullet() {
-}
+Bullet::~Bullet() { }
 
 void Bullet::handleInput(Uint32 time, const SDL_Event& event) {
 }
@@ -36,4 +33,12 @@ void Bullet::render(Uint32 time) {
     SDL_SetRenderDrawColor( getGame()->getRenderer(), COLOR(0xFFFFFFFF) );
 	SDL_RenderDrawLine(getGame()->getRenderer(), position_.getX(),
 			position_.getY(), lineEndPoint.getX(), lineEndPoint.getY());
+}
+
+int Bullet::getPower() {
+	return power_;
+}
+
+void Bullet::setPower(int p) {
+	power_ = p;
 }
