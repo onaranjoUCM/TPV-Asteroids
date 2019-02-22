@@ -2,24 +2,32 @@
 
 Asteroid::Asteroid() { }
 
-Asteroid::Asteroid(int w, int h, Vector2D pos, double angle) {
-	setWidth(w);
-	setHeight(h);
-	setPosition(pos);
-	setVelocity(Vector2D(0, 0));
-	setRotation(angle);
+Asteroid::Asteroid(SDLGame* game) : Container(game), asteroidImage_(game->getServiceLocator()->getTextures()->getTexture(Resources::Asteroid)), naturalMove_(), rotating_(5), showUpAtOppositeSide_() {
+	//Vacio
 }
 
 Asteroid::~Asteroid() {}
 
 void Asteroid::update(Uint32 time) {
-	//naturalMove.update(this, 1);
-	//showUpAtOppositeSide.update(this, 1);
+	naturalMove_.update(this, time);
+	rotating_.update(this, time);
+	showUpAtOppositeSide_.update(this, time);
 }
 
 void Asteroid::render(Uint32 time) {
 	SDL_Rect dest = RECT(getPosition().getX(), getPosition().getY(), getWidth(), getHeight());
-	//asteroidImage.render(this, 1);
+	asteroidImage_.render(this, time);
+}
+
+void Asteroid::setComponents(Vector2D vel, Vector2D pos, double width, double height, ImageGC asteroidImage, NaturalMovePC naturalMove, RotatingPC rotating, ShowUpAtOppositeSidePC showUpAtOppositeSide) {
+	setWidth(width);
+	setHeight(height);
+	setPosition(pos);
+	setVelocity(vel);
+	asteroidImage_ = asteroidImage;
+	naturalMove_ = naturalMove;
+	rotating_ = rotating;
+	showUpAtOppositeSide_ = showUpAtOppositeSide;
 }
 
 int Asteroid::getGenerations() {

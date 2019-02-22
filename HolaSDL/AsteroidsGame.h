@@ -32,7 +32,7 @@ private:
 	std::vector<GameObject*> actors_;
 
 	DemoContainer demoContainer_;
-	GameObject* fighter;
-	Asteroids* asteroids;
-	Bullets* bullets;
+	Fighter fighter_;
+	Asteroids asteroids_;
+	Bullets bullets_;
 };

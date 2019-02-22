@@ -9,13 +9,18 @@
 class Asteroid : public Container {
 protected:
 	int generations_;
+	ImageGC asteroidImage_;
+	NaturalMovePC naturalMove_;
+	RotatingPC rotating_;
+	ShowUpAtOppositeSidePC showUpAtOppositeSide_;
 public:
 	Asteroid();
-	Asteroid(int w, int h, Vector2D pos, double angle);
+	Asteroid(SDLGame* game);
 	virtual ~Asteroid();
 
 	virtual void update(Uint32 time);
 	virtual void render(Uint32 time);
+	virtual void setComponents(Vector2D vel, Vector2D pos, double width, double height, ImageGC asteroidImage, NaturalMovePC naturalMove, RotatingPC rotating, ShowUpAtOppositeSidePC showUpAtOppositeSide);
 
 	int getGenerations();
 	void setGenerations(int n);
