@@ -18,7 +18,7 @@ void AsteroidsGame::initGame() {
 	asteroids = Asteroids(this);
 	bullets = Bullets(this);*/
 
-	actors_.push_back(&demoContainer_);
+	//actors_.push_back(&demoContainer_);
 	actors_.push_back(&fighter_);
 	actors_.push_back(&asteroids_);
 	actors_.push_back(&bullets_);

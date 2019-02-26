@@ -1,7 +1,8 @@
 #include "Asteroids.h"
 
 Asteroids::Asteroids(SDLGame* game) :
-		GameObjectPool(game), asteroidImage_(getGame()->getServiceLocator()->getTextures()->getTexture(Resources::Asteroid)), naturalMove_(), rotating_(10), showUpAtOppositeSide_() {
+		GameObjectPool(game), asteroidImage_(getGame()->getServiceLocator()->getTextures()->getTexture(Resources::Asteroid)), naturalMove_(), rotating_(10), showUpAtOppositeSide_() 
+{
 	for (Asteroid* asteroid : getAllObjects()) {		
 		/*asteroid->addOC(&(Component) asteroidImage_);		asteroid->addOC(&(Component) naturalMove_); asteroid->addOC(&(Component) rotating_);		asteroid->addOC(&(Component) showUpAtOppositeSide_);*/	
 		asteroid->setActive(true);
