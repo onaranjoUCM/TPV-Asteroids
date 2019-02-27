@@ -1,16 +1,19 @@
 #pragma once
 #include "Container.h"
+#include "ImageGC.h"
+#include "NaturalMovePC.h"
+#include "DeactivateOnBorderExit.h"
 
 class Bullet : public Container {
 protected:
 	int power_;
+	ImageGC bulletImage_;
+	NaturalMovePC naturalMove_;
+	DeactivateOnBorderExit deactivate_;
 public:
 	Bullet();
 	Bullet(SDLGame* game);
 	virtual ~Bullet();
-	virtual void handleInput(Uint32 time, const SDL_Event& event);
-	virtual void update(Uint32 time);
-	virtual void render(Uint32 time);
 
 	int getPower();
 	void setPower(int p);

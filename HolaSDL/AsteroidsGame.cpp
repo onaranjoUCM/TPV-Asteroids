@@ -14,10 +14,6 @@ AsteroidsGame::~AsteroidsGame() {
 }
 
 void AsteroidsGame::initGame() {
-	/*fighter = Fighter(this, 75, 75, { (double)getWindowWidth() / 2, (double)getWindowHeight() / 2 });
-	asteroids = Asteroids(this);
-	bullets = Bullets(this);*/
-
 	//actors_.push_back(&demoContainer_);
 	actors_.push_back(&fighter_);
 	actors_.push_back(&asteroids_);
@@ -52,6 +48,9 @@ void AsteroidsGame::handleInput(Uint32 time) {
 		if (event.type == SDL_KEYDOWN) {
 
 			switch (event.key.keysym.sym) {
+			case SDLK_SPACE:
+				bullets_.fireBullet();
+				break;
 			case SDLK_ESCAPE:
 				exit_ = true;
 				break;

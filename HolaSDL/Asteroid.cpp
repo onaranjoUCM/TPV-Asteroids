@@ -2,9 +2,7 @@
 
 Asteroid::Asteroid() { }
 
-Asteroid::Asteroid(SDLGame* game) : Container(game), asteroidImage_(game->getServiceLocator()->getTextures()->getTexture(Resources::Asteroid)), naturalMove_(), rotating_(5), showUpAtOppositeSide_() {
-	//Vacio
-}
+Asteroid::Asteroid(SDLGame* game) : Container(game), asteroidImage_(game->getServiceLocator()->getTextures()->getTexture(Resources::Asteroid)), naturalMove_(), rotating_(5), showUpAtOppositeSide_() { }
 
 Asteroid::~Asteroid() {}
 
