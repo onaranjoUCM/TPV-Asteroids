@@ -1,13 +1,13 @@
-#include "ScoreViewerGC.h"
+#include "LivesViewerGC.h"
 #include "GameManager.h"
 
-ScoreViewerGC::ScoreViewerGC(GameManager * gameManager) : gameManager_(gameManager) { }
+LivesViewerGC::LivesViewerGC(GameManager * gameManager) : gameManager_(gameManager) { }
 
-ScoreViewerGC::~ScoreViewerGC() { }
+LivesViewerGC::~LivesViewerGC() { }
 
-void ScoreViewerGC::render(Container* c, Uint32 time) {
+void LivesViewerGC::render(Container* c, Uint32 time) {
 	Texture msg0(c->getGame()->getRenderer(),
-		"Score: " + gameManager_->getScore(),
+		"Lives: " + gameManager_->getLives(),
 		*(c->getGame()->getServiceLocator()->getFonts()->getFont(
 			Resources::ARIAL24)), { COLOR(0x0022ffff) });
 	msg0.render(c->getGame()->getRenderer(),

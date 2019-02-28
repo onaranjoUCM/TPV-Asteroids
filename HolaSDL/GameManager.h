@@ -3,8 +3,8 @@
 #include "Container.h"
 #include "GameCtrlIc.h"
 #include "ScoreViewerGC.h"
-//#include "GameStatusViewGC.h"
-//#include "LivesViewerGC"
+#include "GameStatusViewGC.h"
+#include "LivesViewerGC.h"
 //#include "FighterAsteroidCollision.h"
 //#include "BulletsAsteroidsCollision.h"
 
@@ -29,8 +29,8 @@ private:
 
 	GameCtrlIC gameCtrl_;
 	ScoreViewerGC scoreView_;
-	//GameStatusViewGC gameStatusView_;
-	//LivesViewer livesViewer_;
+	GameStatusViewGC gameStatusView_;
+	LivesViewerGC livesViewer_;
 	//FighterAsteroidCollision fighterAsteroidCollision_;
 	//BulletsAsteroidsCollision bulletsAsteroidsCollision_;
 };
