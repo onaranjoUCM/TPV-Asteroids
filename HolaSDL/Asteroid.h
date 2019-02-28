@@ -18,10 +18,6 @@ public:
 	Asteroid(SDLGame* game);
 	virtual ~Asteroid();
 
-	virtual void update(Uint32 time);
-	virtual void render(Uint32 time);
-	virtual void setComponents(Vector2D vel, Vector2D pos, double width, double height, ImageGC asteroidImage, NaturalMovePC naturalMove, RotatingPC rotating, ShowUpAtOppositeSidePC showUpAtOppositeSide);
-
 	int getGenerations();
 	void setGenerations(int n);
 };

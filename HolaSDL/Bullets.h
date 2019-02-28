@@ -15,4 +15,4 @@ public:
 	virtual ~Bullets();
 
 	void fireBullet();
-};
+};
