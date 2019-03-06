@@ -2,9 +2,9 @@
 
 #include "Container.h"
 #include "GameCtrlIc.h"
-#include "ScoreViewerGC.h"
-#include "GameStatusViewGC.h"
-#include "LivesViewerGC.h"
+//#include "ScoreViewerGC.h"
+//#include "GameStatusViewGC.h"
+//#include "LivesViewerGC.h"
 //#include "FighterAsteroidCollision.h"
 //#include "BulletsAsteroidsCollision.h"
 
@@ -28,9 +28,9 @@ private:
 	int winner_; // 0=none, 1=asteroids, 2=fighter
 
 	GameCtrlIC gameCtrl_;
-	ScoreViewerGC scoreView_;
-	GameStatusViewGC gameStatusView_;
-	LivesViewerGC livesViewer_;
+	//ScoreViewerGC scoreView_;
+	//GameStatusViewGC gameStatusView_;
+	//LivesViewerGC livesViewer_;
 	//FighterAsteroidCollision fighterAsteroidCollision_;
 	//BulletsAsteroidsCollision bulletsAsteroidsCollision_;
 };
