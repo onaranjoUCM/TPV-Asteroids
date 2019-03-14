@@ -217,7 +217,10 @@
       <Filter>Archivos de encabezado\Demo</Filter>
     </ClInclude>
     <ClInclude Include="GameStatusViewGC.h">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Archivos de encabezado\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="FighterAsteroidCollisionPC.h">
+      <Filter>Archivos de encabezado\Physics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -372,7 +375,10 @@
       <Filter>Archivos de código fuente\Demo</Filter>
     </ClCompile>
     <ClCompile Include="GameStatusViewGC.cpp">
-      <Filter>Archivos de código fuente</Filter>
+      <Filter>Archivos de código fuente\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="FighterAsteroidCollisionPC.cpp">
+      <Filter>Archivos de código fuente\Physics</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
