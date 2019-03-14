@@ -2,7 +2,7 @@
 
 #include <vector>
 
-#include "DemoContainer.h"
+#include "GameManager.h"
 #include "SDLGame.h"
 #include "GameObject.h"
 #include "Fighter.h"
@@ -31,7 +31,7 @@ private:
 	bool exit_;
 	std::vector<GameObject*> actors_;
 
-	DemoContainer demoContainer_;
+	GameManager gameManager_;
 	Fighter fighter_;
 	Asteroids asteroids_;
 	Bullets bullets_;

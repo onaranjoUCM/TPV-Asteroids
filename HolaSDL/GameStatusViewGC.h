@@ -8,6 +8,6 @@ protected:
 	GameManager * gameManager_;
 public:
 	GameStatusViewGC(GameManager * gameManager);
-	virtual ~GameStatusViewGC();
+	virtual virtual ~GameStatusViewGC();
 	virtual void render(Container* c, Uint32 time);
 };

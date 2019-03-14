@@ -52,6 +52,12 @@
     <Filter Include="Archivos de código fuente\Misc">
       <UniqueIdentifier>{ec6166e3-7ef6-4d48-a2dd-8fda9e0a103c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de código fuente\Demo">
+      <UniqueIdentifier>{aaccfdb2-926b-4a5b-a405-1456260541a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Demo">
+      <UniqueIdentifier>{e9367636-de91-4340-ba16-2c73b11c3708}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SDLGame.h">
@@ -83,12 +89,6 @@
     </ClInclude>
     <ClInclude Include="DeactivateOnBorderExit.h">
       <Filter>Archivos de encabezado\Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="DemoGC.h">
-      <Filter>Archivos de encabezado\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="DemoIC.h">
-      <Filter>Archivos de encabezado\Input</Filter>
     </ClInclude>
     <ClInclude Include="Fighter.h">
       <Filter>Archivos de encabezado\GameObjects</Filter>
@@ -195,9 +195,6 @@
     <ClInclude Include="Component.h">
       <Filter>Archivos de encabezado\GameObjects</Filter>
     </ClInclude>
-    <ClInclude Include="DemoContainer.h">
-      <Filter>Archivos de encabezado\GameObjects</Filter>
-    </ClInclude>
     <ClInclude Include="Font.h">
       <Filter>Archivos de encabezado\Misc</Filter>
     </ClInclude>
@@ -206,6 +203,21 @@
     </ClInclude>
     <ClInclude Include="ScoreViewerGC.h">
       <Filter>Archivos de encabezado\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="LivesViewerGC.h">
+      <Filter>Archivos de encabezado\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="DemoContainer.h">
+      <Filter>Archivos de encabezado\Demo</Filter>
+    </ClInclude>
+    <ClInclude Include="DemoGC.h">
+      <Filter>Archivos de encabezado\Demo</Filter>
+    </ClInclude>
+    <ClInclude Include="DemoIC.h">
+      <Filter>Archivos de encabezado\Demo</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStatusViewGC.h">
+      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -241,12 +253,6 @@
     </ClCompile>
     <ClCompile Include="DeactivateOnBorderExit.cpp">
       <Filter>Archivos de código fuente\Physics</Filter>
-    </ClCompile>
-    <ClCompile Include="DemoGC.cpp">
-      <Filter>Archivos de código fuente\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="DemoIC.cpp">
-      <Filter>Archivos de código fuente\Input</Filter>
     </ClCompile>
     <ClCompile Include="Fighter.cpp">
       <Filter>Archivos de código fuente\GameObjects</Filter>
@@ -323,9 +329,6 @@
     <ClCompile Include="Component.cpp">
       <Filter>Archivos de código fuente\GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="DemoContainer.cpp">
-      <Filter>Archivos de código fuente\GameObjects</Filter>
-    </ClCompile>
     <ClCompile Include="Font.cpp">
       <Filter>Archivos de código fuente\Misc</Filter>
     </ClCompile>
@@ -355,6 +358,21 @@
     </ClCompile>
     <ClCompile Include="ScoreViewerGC.cpp">
       <Filter>Archivos de código fuente\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="LivesViewerGC.cpp">
+      <Filter>Archivos de código fuente\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="DemoContainer.cpp">
+      <Filter>Archivos de código fuente\Demo</Filter>
+    </ClCompile>
+    <ClCompile Include="DemoGC.cpp">
+      <Filter>Archivos de código fuente\Demo</Filter>
+    </ClCompile>
+    <ClCompile Include="DemoIC.cpp">
+      <Filter>Archivos de código fuente\Demo</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStatusViewGC.cpp">
+      <Filter>Archivos de código fuente</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

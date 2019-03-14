@@ -2,9 +2,9 @@
 
 #include "Container.h"
 #include "GameCtrlIc.h"
-//#include "ScoreViewerGC.h"
-//#include "GameStatusViewGC.h"
-//#include "LivesViewerGC.h"
+#include "ScoreViewerGC.h"
+#include "GameStatusViewGC.h"
+#include "LivesViewerGC.h"
 //#include "FighterAsteroidCollision.h"
 //#include "BulletsAsteroidsCollision.h"
 
@@ -13,12 +13,12 @@ public:
 	GameManager(SDLGame* game);
 	virtual ~GameManager();
 
-	int getMaxLives();
-	bool isRunning();
-	bool isGameOver();
-	int getScore();
-	int getLives();
-	int getWinner();
+	int getMaxLives() { return maxLives_; }
+	bool isRunning() { return running_; };
+	bool isGameOver() { return gameOver_; };
+	int getScore() { return score_; };
+	int getLives() { return lives_; };
+	int getWinner() { return winner_; };
 private:
 	static int const maxLives_ = 3;
 	bool running_;
@@ -28,9 +28,9 @@ private:
 	int winner_; // 0=none, 1=asteroids, 2=fighter
 
 	GameCtrlIC gameCtrl_;
-	//ScoreViewerGC scoreView_;
-	//GameStatusViewGC gameStatusView_;
-	//LivesViewerGC livesViewer_;
+	ScoreViewerGC scoreView_;
+	GameStatusViewGC gameStatusView_;
+	LivesViewerGC livesViewer_;
 	//FighterAsteroidCollision fighterAsteroidCollision_;
 	//BulletsAsteroidsCollision bulletsAsteroidsCollision_;
 };
