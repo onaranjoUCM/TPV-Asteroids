@@ -6,7 +6,7 @@
 #include "GameStatusViewGC.h"
 #include "LivesViewerGC.h"
 #include "FighterAsteroidCollisionPC.h"
-//#include "BulletsAsteroidsCollision.h"
+#include "BulletsAsteroidCollisionPC.h"
 
 class GameManager : public Container {
 public:
@@ -32,5 +32,5 @@ private:
 	GameStatusViewGC gameStatusView_;
 	LivesViewerGC livesViewer_;
 	//FighterAsteroidCollisionPC fighterAsteroidCollision_;
-	//BulletsAsteroidsCollision bulletsAsteroidsCollision_;
+	//BulletsAsteroidCollisionPC bulletsAsteroidsCollision_;
 };

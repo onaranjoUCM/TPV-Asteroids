@@ -19,6 +19,7 @@
     <ClInclude Include="BoundingBoxGC.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Bullets.h" />
+    <ClInclude Include="BulletsAsteroidCollisionPC.h" />
     <ClInclude Include="BulletsShooter.h" />
     <ClInclude Include="Collisions.h" />
     <ClInclude Include="Component.h" />
@@ -75,6 +76,7 @@
     <ClCompile Include="BoundingBoxGC.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Bullets.cpp" />
+    <ClCompile Include="BulletsAsteroidCollisionPC.cpp" />
     <ClCompile Include="BulletsShooter.cpp" />
     <ClCompile Include="Collisions.cpp" />
     <ClCompile Include="Component.cpp" />
