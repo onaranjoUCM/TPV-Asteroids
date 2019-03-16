@@ -19,6 +19,9 @@ public:
 	int getScore() { return score_; };
 	int getLives() { return lives_; };
 	int getWinner() { return winner_; };
+
+	virtual void receive(const void* senderObj, const msg::Message& msg);
+
 private:
 	static int const maxLives_ = 3;
 	bool running_;

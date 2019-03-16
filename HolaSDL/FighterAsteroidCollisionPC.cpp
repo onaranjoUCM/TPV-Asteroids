@@ -18,10 +18,24 @@ void FighterAsteroidCollisionPC::update(Container * c, Uint32 time) {
 				Collisions::collidesWithRotation(fighter_, asteroid))
 			{
 				cout << "ads";
-				msg::FighterAsteroidCollisionMsg(msg::None, msg::Broadcast, fighter_, asteroid);
+				c->globalSend(this, msg::FighterAsteroidCollisionMsg(msg::None, msg::Broadcast, fighter_, asteroid));
 			} else {
 				break;
 			}
 		}
 	}*/
+}
+
+void FighterAsteroidCollisionPC::receive(Container * c, const msg::Message & msg) {
+	const std::vector<Asteroid*>* asteroids;
+	switch (msg.type_) {
+	case (msg::ASTEROIDS_INFO):
+		asteroids = static_cast<const msg::AsteroidsInfo&>(msg).asteroids_;
+		// TODO: Preguntar
+		break;
+	case (msg::FIGHTER_INFO):
+		GameObject* fighter = static_cast<const msg::FighterInfo&>(msg).fighter_;
+		// TODO: Preguntar
+		break;
+	}
 }

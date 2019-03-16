@@ -3,12 +3,15 @@
 Bullets::Bullets(SDLGame * game) : 
 	GameObjectPool(game), naturalMove_(), deactivate_(),
 	bulletImage_(getGame()->getServiceLocator()->getTextures()->getTexture(Resources::WhiteRect))
-{ 
+{
+	setId(msg::BulletsShooter);
+
 	for (Bullet* bullet : getAllObjects()) {
 		bullet->addC(&bulletImage_);
 		bullet->addC(&naturalMove_);
 		bullet->addC(&deactivate_);
 	}
+	setActive(false);
 }
 
 Bullets::~Bullets() { }

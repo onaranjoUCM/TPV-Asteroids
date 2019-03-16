@@ -19,10 +19,26 @@ void BulletsAsteroidCollisionPC::update(Container * c, Uint32 time) {
 				asteroid->isActive() &&
 				Collisions::collidesWithRotation(bullet, asteroid))
 			{
-				msg::BulletAsteroidCollision(msg::None, msg::Broadcast, bullet, asteroid);
+				c->globalSend(this, msg::BulletAsteroidCollision(msg::None, msg::Broadcast, bullet, asteroid));
 			} else {
 				break;
 			}
 		}
 	}*/
+}
+
+void BulletsAsteroidCollisionPC::receive(Container * c, const msg::Message & msg) {
+	const std::vector<Asteroid*>* asteroids;
+	const std::vector<Bullet*>* bullets;
+
+	switch (msg.type_) {
+	case (msg::ASTEROIDS_INFO):
+		asteroids = static_cast<const msg::AsteroidsInfo&>(msg).asteroids_;
+		// TODO: Preguntar
+		break;
+	case (msg::BULLETS_INFO):
+		bullets = static_cast<const msg::BulletsInfoMsg&>(msg).bullets_;
+		// TODO: Preguntar
+		break;
+	}
 }
