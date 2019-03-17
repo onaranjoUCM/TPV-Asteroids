@@ -3,6 +3,7 @@
 #include "PhysicsComponent.h"
 #include "Asteroid.h"
 #include "GameManager.h"
+#include "Bullet.h"
 
 class BulletsAsteroidCollisionPC : public PhysicsComponent {
 private:

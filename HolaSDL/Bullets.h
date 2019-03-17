@@ -13,6 +13,7 @@ private:
 public:
 	Bullets(SDLGame* game);
 	virtual ~Bullets();
+	virtual void receive(const void* senderObj, const msg::Message& msg);
 
 	void fireBullet();
 };
