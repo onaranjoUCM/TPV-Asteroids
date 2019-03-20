@@ -5,7 +5,7 @@
 #include "DeactivateOnBorderExit.h"
 #include "ImageGC.h"
 
-class Bullets : public GameObjectPool<Bullet, 10> {
+class Bullets : public GameObjectPool<Bullet, 30> {
 private:
 	NaturalMovePC naturalMove_;
 	DeactivateOnBorderExit deactivate_;
@@ -14,6 +14,4 @@ public:
 	Bullets(SDLGame* game);
 	virtual ~Bullets();
 	virtual void receive(const void* senderObj, const msg::Message& msg);
-
-	void fireBullet();
 };

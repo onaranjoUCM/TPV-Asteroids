@@ -37,6 +37,7 @@ void Fighter::render(Uint32 time) {
 }
 
 void Fighter::receive(const void * senderObj, const msg::Message & msg) {
+	Container::receive(senderObj, msg);
 	switch (msg.type_) {
 	case (msg::GAME_START):
 		globalSend(this, msg::FighterInfo(msg::Fighter, msg::Broadcast, this));

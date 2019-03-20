@@ -11,7 +11,7 @@ void GameStatusViewGC::render(Container* c, Uint32 time) {
 	if (!gameManager_->isRunning()) {
 		if (gameManager_->isGameOver()) {
 			msg = "Press ENTER to Start a new game";
-			if (gameManager_->getWinner() == 0) { winnerMsg = "GAME OVER (Winner: None)"; } 
+			if (gameManager_->getWinner() == 0) { winnerMsg = " "; } 
 			else if (gameManager_->getWinner() == 1) { winnerMsg = "GAME OVER (Winner: Asteroids)"; } 
 			else if (gameManager_->getWinner() == 2) { winnerMsg = "GAME OVER (Winner: Fighter)"; }
 

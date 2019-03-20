@@ -54,9 +54,6 @@ void AsteroidsGame::handleInput(Uint32 time) {
 		if (event.type == SDL_KEYDOWN) {
 
 			switch (event.key.keysym.sym) {
-			case SDLK_SPACE:
-				bullets_.fireBullet();
-				break;
 			case SDLK_ESCAPE:
 				exit_ = true;
 				break;

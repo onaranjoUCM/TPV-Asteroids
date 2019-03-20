@@ -34,6 +34,6 @@ private:
 	ScoreViewerGC scoreView_;
 	GameStatusViewGC gameStatusView_;
 	LivesViewerGC livesViewer_;
-	//FighterAsteroidCollisionPC fighterAsteroidCollision_;
-	//BulletsAsteroidCollisionPC bulletsAsteroidsCollision_;
+	FighterAsteroidCollisionPC fighterAsteroidCollision_;
+	BulletsAsteroidCollisionPC bulletsAsteroidsCollision_;
 };

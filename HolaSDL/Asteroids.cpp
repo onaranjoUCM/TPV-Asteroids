@@ -47,7 +47,6 @@ void Asteroids::receive(const void * senderObj, const msg::Message & msg) {
 		setActive(false);
 		break;
 
-	// TODO: Pendiente de testeo tras arreglar BulletAsteroidCollisionPC
 	case (msg::BULLET_ASTEROID_COLLISION):
 		Asteroid* X = static_cast<const msg::BulletAsteroidCollision&>(msg).asteroid_;
 		X->setActive(false);
