@@ -80,7 +80,7 @@ void Asteroids::receive(const void * senderObj, const msg::Message & msg) {
 			globalSend(this, msg::Message(msg::NO_MORE_ASTEROIDS, msg::Asteroids, msg::Broadcast));
 		}
 
-		// TODO: Reproducir sonido de explosion
+		getGame()->getServiceLocator()->getAudios()->playChannel(Resources::Explosion, 0, -1);
 		break;
 	}
 }

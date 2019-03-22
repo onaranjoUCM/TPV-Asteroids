@@ -38,7 +38,7 @@ void Bullets::receive(const void * senderObj, const msg::Message & msg) {
 		b = static_cast<const msg::BulletAsteroidCollision&>(msg).bullet_;
 		b->setActive(false);
 
-		// TODO: Reproducir sonido de explosion
+		getGame()->getServiceLocator()->getAudios()->playChannel(Resources::Explosion, 0, -1);
 		break;
 
 	case (msg::FIGHTER_SHOOT):
@@ -56,7 +56,7 @@ void Bullets::receive(const void * senderObj, const msg::Message & msg) {
 
 		b->setActive(true);
 
-		// TODO: Reproducir sonido Resources::GunShot
+		getGame()->getServiceLocator()->getAudios()->playChannel(Resources::GunShot, 0, -1);
 		break;
 	}
 }
