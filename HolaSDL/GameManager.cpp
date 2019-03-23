@@ -27,7 +27,7 @@ void GameManager::receive(const void * senderObj, const msg::Message & msg) {
 		break;
 	case (msg::ROUND_START):
 		running_ = true;
-		getGame()->getServiceLocator()->getAudios()->playMusic(Resources::ImperialMarch, -1);
+		getGame()->getServiceLocator()->getAudios()->playChannel(Resources::ImperialMarch, 0, -1);
 		break;
 	case (msg::ASTEROID_DESTROYED):
 		p = static_cast<const msg::AsteroidDestroyed&>(msg).points_;

@@ -30,8 +30,31 @@ void Asteroids::receive(const void * senderObj, const msg::Message & msg) {
 			Asteroid* a = getUnusedObject();
 			a->setWidth(20);
 			a->setHeight(20);
+			int x, y;
+			int lado = getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, 4);
+			switch (lado)
+			{
+				case 0: // 0 es lado izquierdo
+					x = 0;
+					y = getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, getGame()->getWindowHeight());
+					break;
+				case 1: // 1 es arriba
+					x = getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, getGame()->getWindowHeight());
+					y = 0;
+					break;
+				case 2: // 2 es abajo
+					x = getGame()->getWindowWidth();
+					y = getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, getGame()->getWindowHeight());
+					break;
+				case 3: // 3 es lado derecho
+					x = getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, getGame()->getWindowHeight());
+					y = getGame()->getWindowHeight();
+					break;
+				default:
+					break;
+			}
 
-			Vector2D p = Vector2D((double)r->nextInt(0, getGame()->getWindowWidth()), (double)r->nextInt(0, getGame()->getWindowHeight()));
+			Vector2D p = Vector2D(x, y);
 			a->setPosition(p);
 
 			Vector2D c = Vector2D(getGame()->getWindowWidth() / 2, getGame()->getWindowHeight() / 2);
