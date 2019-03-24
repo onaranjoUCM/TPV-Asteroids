@@ -5,6 +5,7 @@ Asteroids::Asteroids(SDLGame* game) :
 		GameObjectPool(game), asteroidImage_(getGame()->getServiceLocator()->getTextures()->getTexture(Resources::Asteroid)), naturalMove_(), rotating_(10), showUpAtOppositeSide_() 
 {
 	for (Asteroid* asteroid : getAllObjects()) {
+		asteroid->setGenerations(3);
 		asteroid->addC(&asteroidImage_);
 		asteroid->addC(&naturalMove_);
 		asteroid->addC(&rotating_);
@@ -79,17 +80,16 @@ void Asteroids::receive(const void * senderObj, const msg::Message & msg) {
 
 		if (X->getGenerations() > 1) {
 			RandomNumberGenerator* r = getGame()->getServiceLocator()->getRandomGenerator();
-			for (int i = 0; i < 2; i++) {
+			for (int i = 1; i <= 2; i++) {
 				Asteroid* a = getUnusedObject();
 				a->setWidth(X->getWidth() * 0.75);
 				a->setHeight(X->getHeight() * 0.75);
 				a->setGenerations(X->getGenerations() - 1);
 
 				Vector2D v = X->getVelocity() * 1.1;
-				// TODO: Girar vector en i*30 grados
 				a->setVelocity(v);
-
 				a->setPosition(X->getPosition() + v);
+				a->setRotation(X->getRotation() + i * 30);
 
 				a->setActive(true);
 			}
