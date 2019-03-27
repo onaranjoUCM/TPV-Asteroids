@@ -272,9 +272,6 @@
     <ClCompile Include="GameObject.cpp">
       <Filter>Archivos de código fuente\GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="GameObjectPool.cpp">
-      <Filter>Archivos de código fuente\GameObjects</Filter>
-    </ClCompile>
     <ClCompile Include="GraphicsComponent.cpp">
       <Filter>Archivos de código fuente\Graphics</Filter>
     </ClCompile>

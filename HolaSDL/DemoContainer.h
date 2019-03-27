@@ -16,7 +16,7 @@ public:
 	void reset();
 private:
 	ImageGC tennisball_;
-	DemoIC  backToCenter_;
+	//DemoIC  backToCenter_;
 	NaturalMovePC naturalMove_;
 	BounceOnBorderPC bounceOnBorders_;
 	DemoGC keysInfo_;

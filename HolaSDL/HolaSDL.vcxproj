@@ -93,7 +93,6 @@
     <ClCompile Include="GameCtrlIC.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="GameObjectPool.cpp" />
     <ClCompile Include="GameStatusViewGC.cpp" />
     <ClCompile Include="GraphicsComponent.cpp" />
     <ClCompile Include="GunIC.cpp" />

@@ -3,11 +3,11 @@
 DemoContainer::DemoContainer(SDLGame* game) :
 		Container(game),
 		tennisball_(game->getServiceLocator()->getTextures()->getTexture(Resources::TennisBall)),
-		backToCenter_(SDLK_c),
+		//backToCenter_(SDLK_c),
 		bounceOnBorders_(true,true,true,true)
 {
 	addC(&tennisball_);
-	addC(&backToCenter_);
+	//addC(&backToCenter_);
 	addC(&naturalMove_);
 	addC(&bounceOnBorders_);
 	addC(&keysInfo_);

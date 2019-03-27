@@ -10,6 +10,6 @@ protected:
 public:
 	RotationIC(SDL_Keycode keyRight, SDL_Keycode keyLeft, int angle);
 	virtual ~RotationIC();
-	virtual void handleInput(Container* c, Uint32 time, const SDL_Event& event);
+	virtual void handleInput(Container* c, Uint32 time);
 };
 

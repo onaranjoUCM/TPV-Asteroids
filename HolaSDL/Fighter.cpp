@@ -17,12 +17,14 @@ Fighter::Fighter(SDLGame* game, int w, int h, Vector2D pos) : Container(game),
 
 Fighter::~Fighter() { }
 
-void Fighter::handleInput(Uint32 time, const SDL_Event& event) {
+void Fighter::handleInput(Uint32 time) {
+	/* TODO
 	if (event.type == SDL_KEYDOWN) {
 		rotation_.handleInput(this, 1, event);
 		thrust_.handleInput(this, 1, event);
 		normalGun_.handleInput(this, 1, event);
 	}
+	*/
 }
 
 void Fighter::update(Uint32 time) {

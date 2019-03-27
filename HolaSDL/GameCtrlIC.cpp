@@ -5,7 +5,8 @@ GameCtrlIC::GameCtrlIC(GameManager * gameManager) : gameManager_(gameManager) { 
 
 GameCtrlIC::~GameCtrlIC() { }
 
-void GameCtrlIC::handleInput(Container * c, Uint32 time, const SDL_Event & event) {
+void GameCtrlIC::handleInput(Container * c, Uint32 time) {
+	/* TODO
 	if (event.key.keysym.sym == SDLK_RETURN && !gameManager_->isRunning()) {
 		if (gameManager_->getLives() == gameManager_->getMaxLives() ||
 			gameManager_->getWinner() != 0) {
@@ -13,4 +14,5 @@ void GameCtrlIC::handleInput(Container * c, Uint32 time, const SDL_Event & event
 		}
 		c->globalSend(this, msg::Message(msg::ROUND_START, msg::None, msg::Broadcast));
 	}
+	*/
 }

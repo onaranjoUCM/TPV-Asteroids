@@ -15,7 +15,7 @@ class Fighter : public Container {
 public:
 	Fighter(SDLGame* game, int w, int h, Vector2D pos);
 	virtual ~Fighter();
-	virtual void handleInput(Uint32 time, const SDL_Event& event);
+	virtual void handleInput(Uint32 time);
 	virtual void update(Uint32 time);
 	virtual void render(Uint32 time);
 	virtual void receive(const void* senderObj, const msg::Message& msg);

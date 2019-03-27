@@ -69,7 +69,7 @@ void AsteroidsGame::handleInput(Uint32 time) {
 			}
 		}
 		for (GameObject* o : actors_) {
-			o->handleInput(time, event);
+			o->handleInput(time/*, event*/);
 		}
 	}
 }
