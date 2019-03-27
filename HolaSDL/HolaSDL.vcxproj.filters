@@ -225,6 +225,9 @@
     <ClInclude Include="BulletsAsteroidCollisionPC.h">
       <Filter>Archivos de encabezado\Physics</Filter>
     </ClInclude>
+    <ClInclude Include="InputHandler.h">
+      <Filter>Archivos de encabezado\Input</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -385,6 +388,9 @@
     </ClCompile>
     <ClCompile Include="BulletsAsteroidCollisionPC.cpp">
       <Filter>Archivos de código fuente\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="InputHandler.cpp">
+      <Filter>Archivos de código fuente\Input</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
