@@ -1,23 +1,30 @@
 #include "Logger.h"
 
-Logger* Logger::logger_ = nullptr;
+Logger::Logger() {
+	// TODO: cambiar a log_.open(filename_);
+	log_.open("log.txt");
+	worker_.start();
+}
 
-inline void Logger::initInstance(string filename)
-{
+Logger::~Logger() { 
+	log_.close();
+}
+
+inline void Logger::initInstance(string filename) {
+	filename_ = filename;
 }
 
 inline Logger * Logger::instance() {
-	if (logger_ == nullptr) {
-		logger_ = new Logger();
-		loggerManager_.setObject(logger_);
+	if (instance_ == nullptr) {
+		instance_ = new Logger();
 	}
-	return logger_;
+	return instance_;
 }
 
-void Logger::log(string info)
-{
+void Logger::log(string info) {
+	worker_.execute([info, this]() { log_ << info << endl; });
 }
 
-Logger::~Logger() {
-	delete Logger::instance();
+void Logger::log(function<string()> f) {
+	worker_.execute([f, this]() { log_ << f() << endl; });
 }

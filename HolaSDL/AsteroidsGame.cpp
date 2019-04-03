@@ -24,6 +24,8 @@ void AsteroidsGame::initGame() {
 	addObserver(&fighter_);
 	addObserver(&asteroids_);
 	addObserver(&bullets_);
+
+	Logger::instance()->initInstance("log.txt");
 }
 
 void AsteroidsGame::closeGame() {

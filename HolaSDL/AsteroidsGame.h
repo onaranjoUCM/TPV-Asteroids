@@ -8,6 +8,7 @@
 #include "Fighter.h"
 #include "Asteroids.h"
 #include "Bullets.h"
+#include "Logger.h"
 
 class AsteroidsGame: public SDLGame {
 
