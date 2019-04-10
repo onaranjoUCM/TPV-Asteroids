@@ -6,15 +6,22 @@
 
 class Logger {
 private:
-	static string filename_;
 	static Logger* instance_;
-	Logger();
+	Logger(string filename_);
 	Worker worker_;
 	ofstream log_;
 
 public:
-	inline static void initInstance(string filename);
-	inline static Logger* instance();
+	inline static void initInstance(string filename) {
+		if (instance_ == nullptr) {
+			instance_ = new Logger(filename);
+		}
+	}
+
+	inline static Logger* getInstance() {
+		return instance_;
+	}
+
 	void log(string info);
 	void log(function<string()> f);
 	virtual ~Logger();

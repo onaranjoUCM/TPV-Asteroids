@@ -1,24 +1,14 @@
 #include "Logger.h"
 
-Logger::Logger() {
-	// TODO: cambiar a log_.open(filename_);
-	log_.open("log.txt");
+Logger* Logger::instance_;
+
+Logger::Logger(string filename) {
+	log_.open(filename);
 	worker_.start();
 }
 
 Logger::~Logger() { 
 	log_.close();
-}
-
-inline void Logger::initInstance(string filename) {
-	filename_ = filename;
-}
-
-inline Logger * Logger::instance() {
-	if (instance_ == nullptr) {
-		instance_ = new Logger();
-	}
-	return instance_;
 }
 
 void Logger::log(string info) {

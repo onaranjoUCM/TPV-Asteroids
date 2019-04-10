@@ -1,5 +1,7 @@
 #include "Asteroids.h"
 #include "Messages_defs.h"
+#include "Logger.h"
+#include <sstream>
 
 Asteroids::Asteroids(SDLGame* game) :
 		GameObjectPool(game), asteroidImage_(getGame()->getServiceLocator()->getTextures()->getTexture(Resources::Asteroid)), naturalMove_(), rotating_(10), showUpAtOppositeSide_() 
@@ -101,10 +103,17 @@ void Asteroids::BulletAsteroidCollision(const msg::Message & msg) {
 				Vector2D v = X->getVelocity() * 1.1;
 				v = v.rotate(i * 30);
 				a->setVelocity(v);
-				a->setPosition(X->getPosition() + v);
+				Vector2D p = X->getPosition() + v;
+				a->setPosition(p);
 
 				a->setActive(true);
 				activeAsteroids++;
+
+				Logger::getInstance()->log([p, v]() {
+					stringstream s;
+					s << "New asteroid: " << p << " " << v;
+					return s.str();
+				});
 			}
 		}
 	}

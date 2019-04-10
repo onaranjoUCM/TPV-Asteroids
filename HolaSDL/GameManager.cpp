@@ -1,4 +1,5 @@
 #include "GameManager.h"
+#include "Logger.h"
 
 GameManager::GameManager(SDLGame * game) : Container(game),
 	running_(false), gameOver_(true), score_(0), lives_(maxLives_), winner_(0),
@@ -28,6 +29,7 @@ void GameManager::receive(const void * senderObj, const msg::Message & msg) {
 	case (msg::ROUND_START):
 		running_ = true;
 		getGame()->getServiceLocator()->getAudios()->playMusic(Resources::ImperialMarch, -1);
+		Logger::getInstance()->log("Round Start");
 		break;
 	case (msg::ASTEROID_DESTROYED):
 		p = static_cast<const msg::AsteroidDestroyed&>(msg).points_;
@@ -40,6 +42,7 @@ void GameManager::receive(const void * senderObj, const msg::Message & msg) {
 		getGame()->getServiceLocator()->getAudios()->haltMusic();
 		globalSend(this, msg::Message(msg::ROUND_OVER, msg::None, msg::Broadcast));
 		globalSend(this, msg::Message(msg::GAME_OVER, msg::None, msg::Broadcast));
+		Logger::getInstance()->log("Round End");
 		break;
 	case (msg::FIGHTER_ASTEROID_COLLISION):
 		getGame()->getServiceLocator()->getAudios()->playChannel(Resources::Explosion, 0, -1);
@@ -54,6 +57,7 @@ void GameManager::receive(const void * senderObj, const msg::Message & msg) {
 			winner_ = 1;
 			globalSend(this, msg::Message(msg::GAME_OVER, msg::None, msg::Broadcast));
 		}
+		Logger::getInstance()->log("Round End");
 		break;
 	}
 }
