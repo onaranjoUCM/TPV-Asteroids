@@ -77,7 +77,6 @@
     <ClCompile Include="Asteroids.cpp" />
     <ClCompile Include="AsteroidsGame.cpp" />
     <ClCompile Include="AudioManager.cpp" />
-    <ClCompile Include="BlockingQueue.cpp" />
     <ClCompile Include="BounceOnBorderPC.cpp" />
     <ClCompile Include="BoundingBoxGC.cpp" />
     <ClCompile Include="Bullet.cpp" />

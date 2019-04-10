@@ -1,4 +1,5 @@
 #include "Fighter.h"
+#include "InputHandler.h"
 
 Fighter::Fighter(SDLGame* game, int w, int h, Vector2D pos) : Container(game),
 	fighterImage_(game->getServiceLocator()->getTextures()->getTexture(Resources::Airplanes),
@@ -18,13 +19,11 @@ Fighter::Fighter(SDLGame* game, int w, int h, Vector2D pos) : Container(game),
 Fighter::~Fighter() { }
 
 void Fighter::handleInput(Uint32 time) {
-	/* TODO
-	if (event.type == SDL_KEYDOWN) {
-		rotation_.handleInput(this, 1, event);
-		thrust_.handleInput(this, 1, event);
-		normalGun_.handleInput(this, 1, event);
+	if (InputHandler::getInstance()->isAnyKeyDown()) {
+		rotation_.handleInput(this, 1);
+		thrust_.handleInput(this, 1);
+		normalGun_.handleInput(this, 1);
 	}
-	*/
 }
 
 void Fighter::update(Uint32 time) {

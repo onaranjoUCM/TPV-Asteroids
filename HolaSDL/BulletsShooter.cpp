@@ -13,13 +13,11 @@ BulletsShooter::~BulletsShooter() {
 
 
 void BulletsShooter::handleInput(Uint32 time) {
-	/* TODO
 	for (int i = 0; i < MAX_BULLETS; i++) {
 		if (bullets_[i].isActive()) {
-			bullets_[i].handleInput(time, event);
+			bullets_[i].handleInput(time);
 		}
 	}
-	*/
 }
 
 void BulletsShooter::update(Uint32 time) {

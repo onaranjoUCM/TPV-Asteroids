@@ -407,8 +407,5 @@
     <ClCompile Include="Worker.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
-    <ClCompile Include="BlockingQueue.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>

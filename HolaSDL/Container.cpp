@@ -17,12 +17,10 @@ Container::~Container() {
 }
 
 void Container::handleInput(Uint32 time) {
-	/*TODO
 	for (auto ic : ic_) {
 		if (ic.active && isActive())
-			ic.data->handleInput(this, time, event);
+			ic.data->handleInput(this, time/*, event*/);
 	}
-	*/
 }
 
 void Container::update(Uint32 time) {
