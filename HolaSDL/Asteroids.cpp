@@ -39,6 +39,10 @@ void Asteroids::receive(const void * senderObj, const msg::Message & msg) {
 	case (msg::BULLET_ASTEROID_COLLISION):
 		BulletAsteroidCollision(msg);
 		break;
+
+	case (msg::BLACKHOLE_ASTEROID_COLLISION):
+		BlackHoleAsteroidCollision(msg);
+		break;
 	}
 }
 
@@ -60,7 +64,7 @@ void Asteroids::RoundStart(const msg::Message & msg) {
 			y = getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, getGame()->getWindowHeight());
 			break;
 		case 1: // 1 es arriba
-			x = getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, getGame()->getWindowHeight());
+			x = getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, getGame()->getWindowWidth());
 			y = 0;
 			break;
 		case 2: // 2 es abajo
@@ -68,7 +72,7 @@ void Asteroids::RoundStart(const msg::Message & msg) {
 			y = getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, getGame()->getWindowHeight());
 			break;
 		case 3: // 3 es lado derecho
-			x = getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, getGame()->getWindowHeight());
+			x = getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, getGame()->getWindowWidth());
 			y = getGame()->getWindowHeight();
 			break;
 		default:
@@ -127,4 +131,21 @@ void Asteroids::BulletAsteroidCollision(const msg::Message & msg) {
 	}
 
 	getGame()->getServiceLocator()->getAudios()->playChannel(Resources::Explosion, 0, -1);
+}
+
+void Asteroids::BlackHoleAsteroidCollision(const msg::Message & msg) {
+	Asteroid* asteroid = static_cast<const msg::BlackHoleAsteroidCollision&>(msg).asteroid_;
+	GameObject* fighter = static_cast<const msg::BlackHoleAsteroidCollision&>(msg).fighter_;
+
+	int x, y;
+	do {
+		x = getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, getGame()->getWindowWidth());
+		y = getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, getGame()->getWindowHeight());
+	} while (
+		abs(fighter->getPosition().getX() - x) < 100 ||
+		abs(fighter->getPosition().getY() - y) < 100
+	);
+
+	Vector2D p = Vector2D(x, y);
+	asteroid->setPosition(p);
 }

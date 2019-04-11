@@ -252,6 +252,9 @@
     <ClInclude Include="BulletBlackHoleCollisionPC.h">
       <Filter>Archivos de encabezado\Physics</Filter>
     </ClInclude>
+    <ClInclude Include="BlackHoleAsteroidCollisionPC.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -422,14 +425,17 @@
     <ClCompile Include="BlackHole.cpp">
       <Filter>Archivos de código fuente\GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="BlackHoles.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
     <ClCompile Include="FighterBlackHoleCollisionPC.cpp">
       <Filter>Archivos de código fuente\Physics</Filter>
     </ClCompile>
     <ClCompile Include="BulletBlackHoleCollisionPC.cpp">
       <Filter>Archivos de código fuente\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="BlackHoleAsteroidCollisionPC.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
+    <ClCompile Include="BlackHoles.cpp">
+      <Filter>Archivos de código fuente\GameObjects</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

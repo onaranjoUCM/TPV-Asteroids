@@ -51,6 +51,16 @@ struct BulletBlackHoleCollision : public msg::Message {
 	BlackHole* blackHole_;
 };
 
+struct BlackHoleAsteroidCollision : public msg::Message {
+	BlackHoleAsteroidCollision(msg::ObjectId sender, msg::ObjectId destination, Asteroid* asteroid, BlackHole* blackHole, GameObject* fighter) :
+		Message(msg::BLACKHOLE_ASTEROID_COLLISION, sender, destination), asteroid_(asteroid), blackHole_(blackHole), fighter_(fighter) {
+	}
+
+	Asteroid* asteroid_;
+	BlackHole* blackHole_;
+	GameObject* fighter_;
+};
+
 struct FighterAsteroidCollisionMsg: public msg::Message {
 	FighterAsteroidCollisionMsg(msg::ObjectId sender, msg::ObjectId destination, GameObject* fighter, Asteroid* asteroid) :
 	Message(msg::FIGHTER_ASTEROID_COLLISION, sender, destination), fighter_(fighter), asteroid_(asteroid)  {

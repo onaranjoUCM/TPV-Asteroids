@@ -53,7 +53,7 @@ void BlackHoles::RoundStart(const msg::Message & msg) {
 			y = getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, getGame()->getWindowHeight());
 			break;
 		case 1: // 1 es arriba
-			x = getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, getGame()->getWindowHeight());
+			x = getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, getGame()->getWindowWidth());
 			y = getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, getGame()->getWindowHeight() * 0.25);
 			break;
 		case 2: // 2 es lado derecho
@@ -61,7 +61,7 @@ void BlackHoles::RoundStart(const msg::Message & msg) {
 			y = getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, getGame()->getWindowHeight());
 			break;
 		case 3: // 3 es abajo
-			x = getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, getGame()->getWindowHeight());
+			x = getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, getGame()->getWindowWidth());
 			y = getGame()->getServiceLocator()->getRandomGenerator()->nextInt(getGame()->getWindowHeight() * 0.75, getGame()->getWindowHeight());
 			break;
 		default:

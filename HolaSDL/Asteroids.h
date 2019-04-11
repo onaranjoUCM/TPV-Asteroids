@@ -11,6 +11,7 @@ public:
 	virtual void receive(const void* senderObj, const msg::Message& msg);
 	void RoundStart(const msg::Message & msg);
 	void BulletAsteroidCollision(const msg::Message & msg);
+	void BlackHoleAsteroidCollision(const msg::Message & msg);
 
 private:
 	int activeAsteroids = 0;
