@@ -9,7 +9,7 @@ BlackHoles::BlackHoles(SDLGame* game) :
 		blackHole->addC(&rotating_);
 	}
 
-	//setId(msg::Asteroids);
+	setId(msg::BlackHoles);
 	setActive(false);
 }
 
@@ -32,10 +32,6 @@ void BlackHoles::receive(const void * senderObj, const msg::Message & msg) {
 	case (msg::ROUND_OVER):
 		deactiveAllObjects();
 		setActive(false);
-		break;
-
-	case (msg::BULLET_ASTEROID_COLLISION):
-		//BulletAsteroidCollision(msg);
 		break;
 	}
 }
@@ -75,52 +71,6 @@ void BlackHoles::RoundStart(const msg::Message & msg) {
 		Vector2D p = Vector2D(x, y);
 		blackHole->setPosition(p);
 
-		//Vector2D c = Vector2D(getGame()->getWindowWidth() / 2, getGame()->getWindowHeight() / 2);
-		//Vector2D v = (c - p).normalize() * (r->nextInt(1, 10) / 10.0);
-		//blackHole->setVelocity(v);
-
 		blackHole->setActive(true);
 	}
 }
-/*
-void BlackHoles::BulletAsteroidCollision(const msg::Message & msg) {
-	Asteroid* X = static_cast<const msg::BulletAsteroidCollision&>(msg).asteroid_;
-
-	int points = 4 - X->getGenerations();
-	globalSend(this, msg::AsteroidDestroyed(msg::Asteroids, msg::Broadcast, points));
-
-	if (X->getGenerations() > 1) {
-		RandomNumberGenerator* r = getGame()->getServiceLocator()->getRandomGenerator();
-		for (int i = 1; i <= 2; i++) {
-			Asteroid* a = getUnusedObject();
-			if (a != nullptr) {
-				a->setWidth(X->getWidth() * 0.75);
-				a->setHeight(X->getHeight() * 0.75);
-				a->setGenerations(X->getGenerations() - 1);
-
-				Vector2D v = X->getVelocity() * 1.1;
-				v = v.rotate(i * 30);
-				a->setVelocity(v);
-				Vector2D p = X->getPosition() + v;
-				a->setPosition(p);
-
-				a->setActive(true);
-				activeAsteroids++;
-
-				Logger::getInstance()->log([p, v]() {
-					stringstream s;
-					s << "New asteroid: " << p << " " << v;
-					return s.str();
-				});
-			}
-		}
-	}
-	X->setActive(false);
-	activeAsteroids--;
-
-	if (activeAsteroids == 0) {
-		globalSend(this, msg::Message(msg::NO_MORE_ASTEROIDS, msg::Asteroids, msg::Broadcast));
-	}
-
-	getGame()->getServiceLocator()->getAudios()->playChannel(Resources::Explosion, 0, -1);
-}*/

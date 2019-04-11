@@ -249,6 +249,9 @@
     <ClInclude Include="FighterBlackHoleCollisionPC.h">
       <Filter>Archivos de encabezado\Physics</Filter>
     </ClInclude>
+    <ClInclude Include="BulletBlackHoleCollisionPC.h">
+      <Filter>Archivos de encabezado\Physics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -423,6 +426,9 @@
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
     <ClCompile Include="FighterBlackHoleCollisionPC.cpp">
+      <Filter>Archivos de código fuente\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletBlackHoleCollisionPC.cpp">
       <Filter>Archivos de código fuente\Physics</Filter>
     </ClCompile>
   </ItemGroup>

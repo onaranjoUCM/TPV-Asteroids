@@ -21,6 +21,7 @@
     <ClInclude Include="BounceOnBorderPC.h" />
     <ClInclude Include="BoundingBoxGC.h" />
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="BulletBlackHoleCollisionPC.h" />
     <ClInclude Include="Bullets.h" />
     <ClInclude Include="BulletsAsteroidCollisionPC.h" />
     <ClInclude Include="BulletsShooter.h" />
@@ -85,6 +86,7 @@
     <ClCompile Include="BounceOnBorderPC.cpp" />
     <ClCompile Include="BoundingBoxGC.cpp" />
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="BulletBlackHoleCollisionPC.cpp" />
     <ClCompile Include="Bullets.cpp" />
     <ClCompile Include="BulletsAsteroidCollisionPC.cpp" />
     <ClCompile Include="BulletsShooter.cpp" />

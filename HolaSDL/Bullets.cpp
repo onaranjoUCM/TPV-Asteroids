@@ -41,6 +41,11 @@ void Bullets::receive(const void * senderObj, const msg::Message & msg) {
 		getGame()->getServiceLocator()->getAudios()->playChannel(Resources::Explosion, 0, -1);
 		break;
 
+	case (msg::BULLET_BLACKHOLE_COLLISION):
+		b = static_cast<const msg::BulletBlackHoleCollision&>(msg).bullet_;
+		b->setActive(false);
+		break;
+
 	case (msg::FIGHTER_SHOOT):
 		b = getUnusedObject();
 		if (b != nullptr) {
