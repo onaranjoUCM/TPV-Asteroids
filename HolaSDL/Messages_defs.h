@@ -9,6 +9,7 @@
 
 class Asteroid;
 class Bullet;
+class BlackHole;
 
 namespace msg {
 
@@ -50,6 +51,15 @@ struct FighterAsteroidCollisionMsg: public msg::Message {
 	Asteroid* asteroid_;
 };
 
+struct FighterBlackHoleCollisionMsg : public msg::Message {
+	FighterBlackHoleCollisionMsg(msg::ObjectId sender, msg::ObjectId destination, GameObject* fighter, BlackHole* blackHole) :
+		Message(msg::FIGHTER_BLACKHOLE_COLLISION, sender, destination), fighter_(fighter), blackHole_(blackHole) {
+	}
+
+	GameObject* fighter_;
+	BlackHole* blackHole_;
+};
+
 struct AsteroidDestroyed: public msg::Message {
 	AsteroidDestroyed(msg::ObjectId sender, msg::ObjectId destination, int points) :
 	Message(msg::ASTEROID_DESTROYED, sender, destination), points_(points)  {
@@ -78,6 +88,13 @@ struct AsteroidsInfo: public msg::Message {
 	Message(msg::ASTEROIDS_INFO, sender, destination), asteroids_(asteroids)  {
 	}
 	const std::vector<Asteroid*>*  asteroids_;
+};
+
+struct BlackHolesInfo : public msg::Message {
+	BlackHolesInfo(msg::ObjectId sender, msg::ObjectId destination, const std::vector<BlackHole*>* blackHoles) :
+		Message(msg::BLACKHOLES_INFO, sender, destination), blackHoles_(blackHoles) {
+	}
+	const std::vector<BlackHole*>*  blackHoles_;
 };
 
 };

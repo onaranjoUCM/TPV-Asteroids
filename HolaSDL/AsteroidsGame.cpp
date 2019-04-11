@@ -6,7 +6,7 @@ using namespace std;
 AsteroidsGame::AsteroidsGame() :
 		SDLGame("Asteroids", _WINDOW_WIDTH_, _WINDOW_HEIGHT_),
 		fighter_(this, 75, 75, { (double)getWindowWidth() / 2, (double)getWindowHeight() / 2 }), 
-		gameManager_(this), asteroids_(this), bullets_(this)
+		gameManager_(this), asteroids_(this), bullets_(this), blackHoles_(this)
 {
 	initGame();
 }
@@ -20,11 +20,13 @@ void AsteroidsGame::initGame() {
 	actors_.push_back(&fighter_);
 	actors_.push_back(&asteroids_);
 	actors_.push_back(&bullets_);
+	actors_.push_back(&blackHoles_);
 
 	addObserver(&gameManager_);
 	addObserver(&fighter_);
 	addObserver(&asteroids_);
 	addObserver(&bullets_);
+	addObserver(&blackHoles_);
 
 	Logger::getInstance()->initInstance("log.txt");
 }

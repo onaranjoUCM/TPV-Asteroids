@@ -1,29 +1,28 @@
-#include "Asteroids.h"
+#include "BlackHoles.h"
 #include "Messages_defs.h"
-#include "Logger.h"
-#include <sstream>
 
-Asteroids::Asteroids(SDLGame* game) :
-		GameObjectPool(game), asteroidImage_(getGame()->getServiceLocator()->getTextures()->getTexture(Resources::Asteroid)), naturalMove_(), rotating_(10), showUpAtOppositeSide_() 
+BlackHoles::BlackHoles(SDLGame* game) :
+	GameObjectPool(game), blackHoleImage_(getGame()->getServiceLocator()->getTextures()->getTexture(Resources::BlackHole)), rotating_(5)
 {
-	for (Asteroid* asteroid : getAllObjects()) {
-		asteroid->setGenerations(3);
-		asteroid->addC(&asteroidImage_);
-		asteroid->addC(&naturalMove_);
-		asteroid->addC(&rotating_);
-		asteroid->addC(&showUpAtOppositeSide_);
+	for (BlackHole* blackHole : getAllObjects()) {
+		blackHole->addC(&blackHoleImage_);
+		blackHole->addC(&rotating_);
 	}
 
-	setId(msg::Asteroids);
+	//setId(msg::Asteroids);
 	setActive(false);
 }
 
-Asteroids::~Asteroids() {}
+BlackHoles::~BlackHoles() {}
 
-void Asteroids::receive(const void * senderObj, const msg::Message & msg) {
+void BlackHoles::receive(const void * senderObj, const msg::Message & msg) {
 	switch (msg.type_) {
 	case (msg::GAME_START):
-		globalSend(this, msg::AsteroidsInfo(msg::Asteroids, msg::Broadcast, &getAllObjects()));
+		globalSend(this, msg::BlackHolesInfo(msg::BlackHoles, msg::Broadcast, &getAllObjects()));
+		break;
+
+	case (msg::GAME_OVER):
+		round = 0;
 		break;
 
 	case (msg::ROUND_START):
@@ -32,62 +31,59 @@ void Asteroids::receive(const void * senderObj, const msg::Message & msg) {
 
 	case (msg::ROUND_OVER):
 		deactiveAllObjects();
-		activeAsteroids = 0;
 		setActive(false);
 		break;
 
 	case (msg::BULLET_ASTEROID_COLLISION):
-		BulletAsteroidCollision(msg);
+		//BulletAsteroidCollision(msg);
 		break;
 	}
 }
 
-void Asteroids::RoundStart(const msg::Message & msg) {
+void BlackHoles::RoundStart(const msg::Message & msg) {
+	round++;
 	RandomNumberGenerator* r = getGame()->getServiceLocator()->getRandomGenerator();
 	setActive(true);
-	for (int i = 0; i < 10; i++) {
-		Asteroid* a = getUnusedObject();
-		a->setWidth(20);
-		a->setHeight(20);
-		a->setGenerations(3);
-
+	for (int i = 0; i < 2 * round; i++) {
+		BlackHole* blackHole = getUnusedObject();
+		blackHole->setWidth(50);
+		blackHole->setHeight(50);
 		int x, y;
 		int lado = getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, 4);
 		switch (lado)
 		{
 		case 0: // 0 es lado izquierdo
-			x = 0;
+			x = getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, getGame()->getWindowWidth() * 0.25);
 			y = getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, getGame()->getWindowHeight());
 			break;
 		case 1: // 1 es arriba
 			x = getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, getGame()->getWindowHeight());
-			y = 0;
+			y = getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, getGame()->getWindowHeight() * 0.25);
 			break;
-		case 2: // 2 es abajo
-			x = getGame()->getWindowWidth();
+		case 2: // 2 es lado derecho
+			x = getGame()->getServiceLocator()->getRandomGenerator()->nextInt(getGame()->getWindowWidth() * 0.75, getGame()->getWindowWidth());
 			y = getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, getGame()->getWindowHeight());
 			break;
-		case 3: // 3 es lado derecho
+		case 3: // 3 es abajo
 			x = getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, getGame()->getWindowHeight());
-			y = getGame()->getWindowHeight();
+			y = getGame()->getServiceLocator()->getRandomGenerator()->nextInt(getGame()->getWindowHeight() * 0.75, getGame()->getWindowHeight());
 			break;
 		default:
 			break;
 		}
 
 		Vector2D p = Vector2D(x, y);
-		a->setPosition(p);
+		blackHole->setPosition(p);
 
-		Vector2D c = Vector2D(getGame()->getWindowWidth() / 2, getGame()->getWindowHeight() / 2);
-		Vector2D v = (c - p).normalize() * (r->nextInt(1, 10) / 10.0);
-		a->setVelocity(v);
+		//Vector2D c = Vector2D(getGame()->getWindowWidth() / 2, getGame()->getWindowHeight() / 2);
+		//Vector2D v = (c - p).normalize() * (r->nextInt(1, 10) / 10.0);
+		//blackHole->setVelocity(v);
 
-		a->setActive(true);
-		activeAsteroids++;
+		blackHole->setActive(true);
 	}
 }
-
-void Asteroids::BulletAsteroidCollision(const msg::Message & msg) {
+/*
+void BlackHoles::BulletAsteroidCollision(const msg::Message & msg) {
 	Asteroid* X = static_cast<const msg::BulletAsteroidCollision&>(msg).asteroid_;
 
 	int points = 4 - X->getGenerations();
@@ -127,4 +123,4 @@ void Asteroids::BulletAsteroidCollision(const msg::Message & msg) {
 	}
 
 	getGame()->getServiceLocator()->getAudios()->playChannel(Resources::Explosion, 0, -1);
-}
+}*/
